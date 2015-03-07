@@ -22,27 +22,29 @@ Principles and Motivation
 
 * os distributors are not the enemy and actually do a lot of useful work
 
-Usage: Setup
-------------
+Usage: Initial Install
+----------------------
 
-To set up a project, a simple python script to download pbundle itself is given.
-This step is optional if you have a system-wide install of pbundle::
+If you do not have a global install of pbundle (or want to use the version from
+git) then there is a zero-config install::
 
   $ python pbootstrap.py
 
 In your repository will be created a simple virtual environment with pbundle
-installed, by default in ``python_modules``.
+installed, by default in ``pbundle_modules``.
 
-Usage: Initial Install
-----------------------
-
-Write a requirements.txt to define your dependencies::
+Write a requirements.txt to define your dependencies and run an update::
 
   $ pbundle update
 
-This will update the virtual environment with your specified dependencies and
-write a lock file, which is simply another ``requirements.txt`` with exact
-versions in it.  You should commit the lock file to your VCS.
+This will create and update a virtual environment (in ``python_modules`` by
+default) with your specified dependencies and write a lock file, which is simply
+another ``requirements.txt`` with exact versions in it.  You should commit the
+lock file to your VCS.
+
+If you used the bootstrap script you can add pbundle to your requirements.txt so
+that you don't need two virtualenvs, but pbundle does not need to be in the same
+environment as your project.
 
 Usage: Deployment
 -----------------
